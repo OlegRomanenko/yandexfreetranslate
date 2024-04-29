@@ -142,7 +142,7 @@ class YandexFreeTranslate():
 			os.rename(self.keyfilename, self.backfilename)
 		self.key = self._get_key()
 		return self.key
-	def __init__(self, api="web"):
+	def __init__(self, api="ios"):
 		api = api.lower()
 		self.api = api
 		if not os.path.isfile(self.keyfilename) and os.path.isfile(self.backfilename):
@@ -219,7 +219,7 @@ if __name__ == "__main__":
 			else:
 				host, port = hostport.split(":")
 				login, password = ("", "")
-		yt.setProxy(protocol, host, port, login, password)
+			yt.set_proxy(protocol, host, port, login, password)
 	text = sys.argv[3]
 	if len(text) < 150 and os.path.isfile(text): text = open(text, "r", encoding="utf8").read()
 	tr_text = yt.translate(sys.argv[1], sys.argv[2], text)
